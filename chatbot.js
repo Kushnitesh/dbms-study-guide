@@ -13,10 +13,10 @@ const testPrepBtn = document.getElementById('test-prep-btn');
 // State Management
 let chatState = 'IDLE'; // IDLE, TESTING_SETUP, TESTING_ACTIVE
 let messageHistory = [];
-const SYSTEM_PROMPT = \`You are a highly experienced Professor of Database Management Systems (DBMS) at Amity University Noida. 
+const SYSTEM_PROMPT = `You are a highly experienced Professor of Database Management Systems (DBMS) at Amity University Noida. 
 Your goal is to help B.Tech CSE students master DBMS for their university exams and placements.
 Always explain concepts using a "Daily-Life Intuition -> Layman Example -> Technical Definition" approach.
-Be encouraging but strict about academic correctness.\`;
+Be encouraging but strict about academic correctness.`;
 
 // Check for API Key
 function getApiKey() {
@@ -93,9 +93,9 @@ async function handleSend() {
     if (chatState === 'TESTING_SETUP') {
         apiMessages.push({
             role: 'system',
-            content: \`The student has requested a test on the topic: "\${text}". 
+            content: `The student has requested a test on the topic: "${text}". 
             Generate exactly ONE challenging but fair university-level subjective or MCQ question on this topic. 
-            Do NOT provide the answer. Wait for the student to answer.\`
+            Do NOT provide the answer. Wait for the student to answer.`
         });
         chatState = 'TESTING_ACTIVE';
     } else if (chatState === 'TESTING_ACTIVE') {
@@ -128,7 +128,7 @@ async function handleSend() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': \`Bearer \${apiKey}\`
+                'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
                 model: 'llama3-8b-8192',
