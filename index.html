@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBMS — Complete Study Guide | Amity University Noida</title>
+    <meta name="description"
+        content="Interactive Database Management Systems study guide with real-life analogies, ER diagrams, SQL examples, MCQs, and complete syllabus coverage for B.Tech CSE">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">🗄️</div>
+            <h2>DBMS Study Guide</h2>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-section">Foundations</li>
+            <li><a href="#db-intro" class="nav-link active" data-section="db-intro">📦 Introduction to Database</a></li>
+            <li><a href="#dbms-overview" class="nav-link" data-section="dbms-overview">⚙️ Overview of DBMS</a></li>
+            <li><a href="#db-vs-file" class="nav-link" data-section="db-vs-file">⚔️ DB System vs File System</a></li>
+
+            <li class="nav-section">Architecture</li>
+            <li><a href="#db-arch" class="nav-link" data-section="db-arch">🏗️ System Architecture</a></li>
+            <li><a href="#three-schema" class="nav-link" data-section="three-schema">🏛️ 3-Schema Architecture</a></li>
+            <li><a href="#data-independence" class="nav-link" data-section="data-independence">🔓 Data Independence</a></li>
+
+            <li class="nav-section">Data Models & ER</li>
+            <li><a href="#data-models" class="nav-link" data-section="data-models">📊 Data Models</a></li>
+            <li><a href="#er-concepts" class="nav-link" data-section="er-concepts">🧱 ER Model Concepts</a></li>
+            <li><a href="#er-notation" class="nav-link" data-section="er-notation">🎨 ER Diagram Notation</a></li>
+            <li><a href="#mapping-constraints" class="nav-link" data-section="mapping-constraints">🔗 Mapping Constraints</a></li>
+
+            <li class="nav-section">Keys</li>
+            <li><a href="#keys-all" class="nav-link" data-section="keys-all">🔑 All Keys Explained</a></li>
+
+            <li class="nav-section">Advanced ER</li>
+            <li><a href="#gen-agg" class="nav-link" data-section="gen-agg">🔀 Generalization & Aggregation</a></li>
+            <li><a href="#er-to-tables" class="nav-link" data-section="er-to-tables">📋 ER → Tables</a></li>
+            <li><a href="#eer-model" class="nav-link" data-section="eer-model">🧬 Extended ER Model</a></li>
+
+            <li class="nav-section">Relational Model</li>
+            <li><a href="#relational-model" class="nav-link" data-section="relational-model">📐 Relational Concepts</a></li>
+            <li><a href="#integrity" class="nav-link" data-section="integrity">🛡️ Integrity Constraints</a></li>
+
+            <li class="nav-section">Self-Test</li>
+            <li><a href="#quiz" class="nav-link" data-section="quiz">📝 Quiz Yourself</a></li>
+        </ul>
+        <div class="progress-box">
+            <div class="progress-label">Study Progress</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">0% Complete</div>
+        </div>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <main class="content" id="mainContent">
+        <!-- Sections injected by JS -->
+    </main>
+
+    <script>const SECTIONS = {}; const QUIZ_DATA = [];</script>
+    <script src="content-foundations.js"></script>
+    <script src="content-architecture.js"></script>
+    <script src="content-models-er.js"></script>
+    <script src="content-keys.js"></script>
+    <script src="content-advanced-er.js"></script>
+    <script src="content-relational.js"></script>
+    <script src="content-quiz.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
