@@ -8,7 +8,7 @@ const SQL_QUESTIONS = [
         title: "1. Basic Retrieval",
         schema: "Table: Employees (EmpID, Name, Department, Salary)",
         task: "Write a query to retrieve all columns for all employees.",
-        solution_regex: /^\\s*SELECT\\s+\\*\\s+FROM\\s+Employees\\s*;?\\s*$/i,
+        solution_regex: /^\s*SELECT\s+\*\s+FROM\s+Employees\s*;?\s*$/i,
         hint: "Use the wildcard character (*) to select all columns."
     },
     {
@@ -16,7 +16,7 @@ const SQL_QUESTIONS = [
         title: "2. Filtering Data",
         schema: "Table: Students (RollNo, Name, Branch, CGPA)",
         task: "Write a query to find the 'Name' of all students in the 'CSE' branch.",
-        solution_regex: /^\\s*SELECT\\s+Name\\s+FROM\\s+Students\\s+WHERE\\s+Branch\\s*=\\s*'CSE'\\s*;?\\s*$/i,
+        solution_regex: /^\s*SELECT\s+Name\s+FROM\s+Students\s+WHERE\s+Branch\s*=\s*'CSE'\s*;?\s*$/i,
         hint: "Use the WHERE clause. Don't forget single quotes around 'CSE'."
     },
     {
@@ -24,7 +24,7 @@ const SQL_QUESTIONS = [
         title: "3. Sorting Results",
         schema: "Table: Products (ProductID, ProductName, Price)",
         task: "Write a query to fetch all 'ProductName' and 'Price', ordered by 'Price' in descending order.",
-        solution_regex: /^\\s*SELECT\\s+ProductName\\s*,\\s*Price\\s+FROM\\s+Products\\s+ORDER\\s+BY\\s+Price\\s+DESC\\s*;?\\s*$/i,
+        solution_regex: /^\s*SELECT\s+ProductName\s*,\s*Price\s+FROM\s+Products\s+ORDER\s+BY\s+Price\s+DESC\s*;?\s*$/i,
         hint: "Use ORDER BY column_name DESC."
     },
     {
@@ -32,7 +32,7 @@ const SQL_QUESTIONS = [
         title: "4. Aggregate Functions",
         schema: "Table: Orders (OrderID, CustomerID, Amount)",
         task: "Write a query to find the total sum of all order amounts. Use SUM(Amount).",
-        solution_regex: /^\\s*SELECT\\s+SUM\\(\\s*Amount\\s*\\)\\s+FROM\\s+Orders\\s*;?\\s*$/i,
+        solution_regex: /^\s*SELECT\s+SUM\(\s*Amount\s*\)\s+FROM\s+Orders\s*;?\s*$/i,
         hint: "Use the SUM() aggregate function."
     },
     {
@@ -40,7 +40,7 @@ const SQL_QUESTIONS = [
         title: "5. Pattern Matching (LIKE)",
         schema: "Table: Users (UserID, Username, Email)",
         task: "Write a query to find all 'Username's where the 'Email' ends with '@gmail.com'.",
-        solution_regex: /^\\s*SELECT\\s+Username\\s+FROM\\s+Users\\s+WHERE\\s+Email\\s+LIKE\\s*'%@gmail\\.com'\\s*;?\\s*$/i,
+        solution_regex: /^\s*SELECT\s+Username\s+FROM\s+Users\s+WHERE\s+Email\s+LIKE\s*'%@gmail\.com'\s*;?\s*$/i,
         hint: "Use the LIKE operator with the '%' wildcard before the domain."
     }
 ];
@@ -76,8 +76,8 @@ SECTIONS['sql-practice'] = sqlHTML;
 
 // Expose functions globally for the onclick handlers
 window.checkSQL = function(index) {
-    const inputEl = document.getElementById(\`sql-input-\${index}\`);
-    const feedbackEl = document.getElementById(\`sql-feedback-\${index}\`);
+    const inputEl = document.getElementById("sql-input-" + index);
+    const feedbackEl = document.getElementById("sql-feedback-" + index);
     const query = inputEl.value.trim();
     
     if (!query) {
@@ -101,7 +101,7 @@ window.checkSQL = function(index) {
 };
 
 window.showSQLHint = function(index) {
-    const feedbackEl = document.getElementById(\`sql-feedback-\${index}\`);
+    const feedbackEl = document.getElementById("sql-feedback-" + index);
     feedbackEl.innerHTML = "💡 <strong>Hint:</strong> " + SQL_QUESTIONS[index].hint;
     feedbackEl.className = "sql-feedback hint-bg";
     feedbackEl.style.display = "block";
