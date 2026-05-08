@@ -143,5 +143,49 @@ SECTIONS['subjective'] = `
     </div>
 </div>
 
+<!-- Question 8 -->
+<div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">Q8: What is an Entity-Relationship (ER) model? Explain the types of attributes and cardinality constraints with examples. <span class="arrow">▼</span></div>
+    <div class="acc-body">
+        <p>The <strong>Entity-Relationship (ER) Model</strong> is a conceptual data model used to represent the logical structure of a database in a visual manner. It uses entities, attributes, and relationships to model real-world scenarios.</p>
+        
+        <h4>Types of Attributes:</h4>
+        <ul>
+            <li><strong>Simple Attribute:</strong> Cannot be divided further. (e.g., Roll_No)</li>
+            <li><strong>Composite Attribute:</strong> Can be divided into smaller sub-parts. (e.g., Name → First_Name, Last_Name)</li>
+            <li><strong>Single-valued:</strong> Contains a single value. (e.g., Date of Birth)</li>
+            <li><strong>Multi-valued:</strong> Can have multiple values for one entity. Represented by a double oval. (e.g., Phone Numbers)</li>
+            <li><strong>Derived Attribute:</strong> Its value is calculated from another attribute. Represented by a dashed oval. (e.g., Age, derived from DOB)</li>
+            <li><strong>Key Attribute:</strong> Uniquely identifies an entity. Represented by an underline. (e.g., Aadhaar_No)</li>
+        </ul>
+
+        <h4>Cardinality Constraints:</h4>
+        <p>Defines the maximum number of relationship instances an entity can participate in.</p>
+        <ul>
+            <li><strong>One-to-One (1:1):</strong> One entity in A is associated with at most one entity in B. (e.g., One Person has One Passport).</li>
+            <li><strong>One-to-Many (1:N):</strong> One entity in A is associated with any number in B. (e.g., One Department has Many Students).</li>
+            <li><strong>Many-to-Many (M:N):</strong> Many entities in A are associated with many entities in B. (e.g., Many Students enroll in Many Courses).</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Question 9 -->
+<div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">Q9: What are the standard rules for converting an ER diagram into Relational Tables? <span class="arrow">▼</span></div>
+    <div class="acc-body">
+        <p>Converting an ER diagram into SQL tables (relations) follows a strict set of mapping rules:</p>
+        <ol>
+            <li><strong>Strong Entity:</strong> Create a new table. All simple attributes become columns. The key attribute becomes the Primary Key.</li>
+            <li><strong>Weak Entity:</strong> Create a new table. The Primary Key of this new table is a combination of the Owner Entity's Primary Key + the Weak Entity's Partial Key.</li>
+            <li><strong>1:1 Relationship:</strong> Add the Primary Key of one table as a Foreign Key in the other table. It is best to add it to the table with total participation.</li>
+            <li><strong>1:N Relationship:</strong> The Primary Key of the "1-side" table is added as a Foreign Key into the "N-side" (Many-side) table. <br><em>Example: Dept (1) and Student (N) → Student table gets Dept_ID as a Foreign Key.</em></li>
+            <li><strong>M:N Relationship:</strong> Create a completely NEW junction table. The Primary Keys of both participating entities are added as Foreign Keys. Together, they form a composite Primary Key for the new table.</li>
+            <li><strong>Multi-valued Attribute:</strong> Create a NEW table. It contains the Primary Key of the entity + the multi-valued attribute itself. Both together form the Primary Key.</li>
+            <li><strong>Composite Attribute:</strong> Flatten it out. Only store the simple sub-components as separate columns (e.g., store First_Name and Last_Name, discard "Name").</li>
+            <li><strong>Derived Attribute:</strong> Generally ignored/not stored in tables, as it can be calculated dynamically during a query to avoid data inconsistency.</li>
+        </ol>
+    </div>
+</div>
+
 <button class="mark-done-btn" onclick="markDone('subjective')">✅ Mark Section Complete</button>
 `;
