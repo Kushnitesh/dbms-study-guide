@@ -81,6 +81,28 @@
         <!-- Sections injected by JS -->
     </main>
 
+    <!-- Chatbot Widget -->
+    <div id="chatbot-container" class="chatbot-hidden">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <span class="bot-icon">🤖</span> Professor Groq
+            </div>
+            <button id="chatbot-close-btn" class="chatbot-close">✕</button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <!-- Messages go here -->
+            <div class="bot-msg">Hello! I am your AI Tutor. How can I help you today?</div>
+        </div>
+        <div class="chatbot-controls">
+            <button id="test-prep-btn" class="test-prep-btn">🎓 Test My Preparation</button>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Type your answer or doubt here..." autocomplete="off">
+            <button id="chatbot-send-btn">➤</button>
+        </div>
+    </div>
+    <button id="chatbot-toggle-btn" class="chatbot-toggle">🤖</button>
+
     <script>const SECTIONS = {}; const QUIZ_DATA = [];</script>
     <script src="content-foundations.js"></script>
     <script src="content-architecture.js"></script>
@@ -97,6 +119,7 @@
     <script src="content-quiz.js"></script>
     <script src="content-subjective.js"></script>
     <script src="app.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 
 </html>
