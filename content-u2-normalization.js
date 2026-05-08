@@ -261,6 +261,27 @@ This means <span class="inline-code">Center_City</span> depends on <span class="
     <p><strong>4NF Solution:</strong> A table is in 4NF if it is in BCNF and contains no MVDs. We decompose it into two tables: <span class="inline-code">(Prof, Subject)</span> and <span class="inline-code">(Prof, Hobby)</span>.</p>
 </div>
 
+<hr>
+
+<h2><span class="emoji">🔍</span> Inclusion Dependence & Alternative Approaches</h2>
+
+<div class="card">
+    <div class="card-title">🔗 Inclusion Dependence (ID)</div>
+    <p><strong>What is it?</strong> An Inclusion Dependency is a constraint stating that the values appearing in one set of columns must also appear (be included) in another set of columns in a different table.</p>
+    <p><strong>Layman Example:</strong> You cannot assign an Employee to "Department 5" if "Department 5" does not exist in the Department table! The set of Dept_IDs in the Employee table MUST be included in the set of Dept_IDs in the Department table.</p>
+    <p><em>Professor's Tip:</em> In SQL, Inclusion Dependence is practically implemented using <strong>Foreign Key Constraints (Referential Integrity)</strong>!</p>
+</div>
+
+<div class="card">
+    <div class="card-title">🔄 Alternative Approaches to Database Design</div>
+    <p>When designing a database, you don't always have to start with Normalization. There are two main approaches:</p>
+    <ul>
+        <li><strong>1. Top-Down Approach (ER Modeling):</strong> You start by identifying the real-world Entities (Student, Course) and their relationships. You draw an ER Diagram, and then map that diagram directly into tables. This naturally produces well-normalized tables!</li>
+        <li><strong>2. Bottom-Up Approach (Normalization/Synthesis):</strong> You start with one giant, messy table containing all attributes (the "Universal Relation"). Then, you use Functional Dependencies to systematically break it down into smaller tables (1NF → 2NF → 3NF).</li>
+    </ul>
+    <p><em>Industry Reality:</em> In the real world, we actually use a mix of both! We use Top-Down to design the ER model, convert it to tables, and then use Bottom-Up (Normalization rules) to double-check if we made any mistakes.</p>
+</div>
+
 <div class="accordion">
     <div class="acc-header" onclick="toggleAcc(this)">🎓 University Answer: Explain Normalization and its Normal Forms (10 marks) <span class="arrow">▼</span></div>
     <div class="acc-body">

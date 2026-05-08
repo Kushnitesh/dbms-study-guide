@@ -223,5 +223,37 @@ SECTIONS['subjective'] = `
     </div>
 </div>
 
+<!-- Question 13 -->
+<div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">Q13: What are Biological Databases? Discuss their primary goals and architecture. <span class="arrow">▼</span></div>
+    <div class="acc-body">
+        <p><strong>Biological Databases</strong> are large, organized libraries of persistent biological data (such as genome sequences, protein structures, and metabolic pathways) designed for computerized search and analysis.</p>
+        <p><strong>Primary Goals:</strong></p>
+        <ul>
+            <li><strong>Information Retrieval:</strong> Provide researchers rapid access to existing biological data.</li>
+            <li><strong>Knowledge Discovery:</strong> Enable computational algorithms to discover new patterns (e.g., predicting protein functions).</li>
+            <li><strong>Data Curation:</strong> Ensure high data quality through expert review.</li>
+        </ul>
+        <p><strong>Architecture (3-Tier Model):</strong></p>
+        <ul>
+            <li><strong>Presentation Tier:</strong> The web interface/GUI where users input queries (e.g., NCBI portal).</li>
+            <li><strong>Application Tier:</strong> The business logic servers running complex search algorithms like BLAST or FASTA.</li>
+            <li><strong>Database Tier:</strong> The actual storage systems (Flat Files, RDBMS, or OODBMS) holding the genetic sequences.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Question 14 -->
+<div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">Q14: Compare Flat Files, RDBMS, and OODBMS in the context of biological data storage. <span class="arrow">▼</span></div>
+    <div class="acc-body">
+        <ul>
+            <li><strong>Flat Files:</strong> Store data as plain text (e.g., FASTA). Extremely fast for sequential reading of massive DNA strings, and easy to parse with scripts (Perl/Java). However, they fail at handling complex relationships and lack ACID properties.</li>
+            <li><strong>RDBMS (Relational Databases):</strong> Store data in structured tables using SQL. Excellent for data integrity, concurrency control, and querying relationships. However, flattening highly complex 3D biological structures into 2D tables is inefficient.</li>
+            <li><strong>OODBMS (Object-Oriented Databases):</strong> Store data as Objects. Perfectly maps to the complex, hierarchical nature of biological data (e.g., a Protein object containing references to Gene objects) without needing complex SQL JOINs. However, they have a steeper learning curve and lack universal standardization compared to SQL.</li>
+        </ul>
+    </div>
+</div>
+
 <button class="mark-done-btn" onclick="markDone('subjective')">✅ Mark Section Complete</button>
 `;

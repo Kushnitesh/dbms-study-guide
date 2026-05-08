@@ -15,6 +15,7 @@
         'gen-agg', 'er-to-tables', 'eer-model',
         'relational-model', 'integrity',
         'func-dep', 'normalization', 'sql-basics', 'sql-advanced', 'rel-algebra',
+        'biodb-intro', 'biodb-storage', 'biodb-resources',
         'sql-practice', 'quiz', 'subjective'
     ];
     const doneKey = 'dbms-study-done';

@@ -78,3 +78,12 @@ QUIZ_DATA.push(
     { q: "Which relational algebra operation corresponds to the WHERE clause in SQL?", opts: ["Projection (π)", "Selection (σ)", "Rename (ρ)", "Cartesian Product (×)"], ans: 1, explain: "Selection (σ) filters ROWS based on a condition, exactly like the WHERE clause." },
     { q: "Which operation corresponds to the SELECT clause in SQL?", opts: ["Projection (π)", "Selection (σ)", "Rename (ρ)", "Set Difference (-)"], ans: 0, explain: "Projection (π) selects specific COLUMNS, exactly like the SELECT column_name clause in SQL." }
 );
+
+// Unit 3: Biological Databases
+QUIZ_DATA.push(
+    { q: "Which of the following is an example of a Primary Biological Database?", opts: ["PDB", "GenBank", "SWISS-PROT", "None of the above"], ans: 1, explain: "GenBank stores raw, experimentally derived DNA sequences, making it a primary database. PDB and SWISS-PROT are secondary (curated)." },
+    { q: "The architecture of most biological databases follows which model?", opts: ["1-Tier", "2-Tier", "3-Tier", "Peer-to-Peer"], ans: 2, explain: "They follow a 3-Tier model: Presentation Tier (Web UI), Application Tier (Search algorithms like BLAST), and Database Tier (Storage)." },
+    { q: "Which programming language is historically famous for biological sequence parsing due to its text-processing power?", opts: ["C++", "Java", "Perl", "Ruby"], ans: 2, explain: "BioPerl (Perl) was widely used for bioinformatics because of its incredibly powerful regular expressions for text parsing." },
+    { q: "What does BLAST stand for?", opts: ["Basic Local Alignment Search Tool", "Biological Language And Syntax Tool", "Big Live Array System Tool", "Bio Local Analysis Sequence Tool"], ans: 0, explain: "BLAST (Basic Local Alignment Search Tool) is the most widely used algorithm for comparing biological sequences." },
+    { q: "What is a major disadvantage of using Flat Files for biological databases?", opts: ["They are too slow to read sequentially", "They cannot handle complex relationships and joins", "They require complex SQL queries", "They take up too much RAM"], ans: 1, explain: "Flat files are actually very fast to read sequentially, but they fail completely when you need to query complex relationships between entities (which is why RDBMS/OODBMS are used)." }
+);
