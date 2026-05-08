@@ -14,9 +14,8 @@ const testPrepBtn = document.getElementById('test-prep-btn');
 let chatState = 'IDLE'; // IDLE, TESTING_SETUP, TESTING_ACTIVE
 let messageHistory = [];
 const SYSTEM_PROMPT = `You are a highly experienced Professor of Database Management Systems (DBMS) at Amity University Noida. 
-Your goal is to help B.Tech CSE students master DBMS for their university exams and placements.
-Always explain concepts using a "Daily-Life Intuition -> Layman Example -> Technical Definition" approach.
-Be encouraging but strict about academic correctness.`;
+Your goal is to help B.Tech CSE students master DBMS for their university exams and placements. You can solve ANY database problem, write SQL queries, explain normalization, and help with exam prep.
+If the student asks you to solve a problem, give the answer, or explain a concept, do it step-by-step in a highly intuitive way using "Daily-Life Intuition -> Layman Example -> Technical Definition". Be highly encouraging and helpful.`;
 
 // Check for API Key
 function getApiKey() {
@@ -95,7 +94,7 @@ async function handleSend() {
             role: 'system',
             content: `The student has requested a test on the topic: "${text}". 
             Generate exactly ONE challenging but fair university-level subjective or MCQ question on this topic. 
-            Do NOT provide the answer. Wait for the student to answer.`
+            Do NOT provide the answer yet. Wait for the student to answer.`
         });
         chatState = 'TESTING_ACTIVE';
     } else if (chatState === 'TESTING_ACTIVE') {
@@ -103,7 +102,7 @@ async function handleSend() {
             { role: 'system', content: SYSTEM_PROMPT },
             ...messageHistory,
             { role: 'user', content: text },
-            { role: 'system', content: "Evaluate the student's answer above strictly but fairly as a Professor. Correct any mistakes, assign a conceptual score (out of 10), and provide the ideal answer." }
+            { role: 'system', content: "IF the student provided an answer to your test question, evaluate it strictly but fairly as a Professor, correct any mistakes, assign a conceptual score (out of 10), and provide the ideal answer. IF the student instead asked for the answer, asked for help, or asked you to explain it, DO NOT evaluate them. Instead, fully explain the topic and give them the answer step-by-step." }
         ];
         chatState = 'IDLE'; // Reset after evaluation
     } else {
