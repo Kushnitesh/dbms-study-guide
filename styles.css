@@ -850,6 +850,11 @@ tr:hover td {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border);
+    cursor: grab;
+}
+
+.chatbot-header:active {
+    cursor: grabbing;
 }
 
 .chatbot-title {

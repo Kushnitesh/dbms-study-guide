@@ -167,3 +167,76 @@ async function handleSend() {
         console.error(error);
     }
 }
+
+// ═══════════════════════════════════════════════════════════════
+// DRAG FUNCTIONALITY
+// ═══════════════════════════════════════════════════════════════
+const chatHeader = document.querySelector('.chatbot-header');
+
+let isDragging = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
+
+chatHeader.addEventListener("mousedown", dragStart);
+document.addEventListener("mouseup", dragEnd);
+document.addEventListener("mousemove", drag);
+
+// Also support touch screens
+chatHeader.addEventListener("touchstart", dragStart, { passive: true });
+document.addEventListener("touchend", dragEnd);
+document.addEventListener("touchmove", drag, { passive: true });
+
+function dragStart(e) {
+    if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+    } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+    }
+
+    if (e.target === chatHeader || e.target.closest('.chatbot-header')) {
+        // Prevent dragging when clicking the close button
+        if (e.target.id === 'chatbot-close-btn') return;
+        isDragging = true;
+        // Disable transition while dragging so it doesn't lag
+        chatContainer.style.transition = 'none';
+    }
+}
+
+function dragEnd() {
+    initialX = currentX;
+    initialY = currentY;
+    isDragging = false;
+    // Restore transition
+    chatContainer.style.transition = 'opacity 0.3s, transform 0.3s, visibility 0.3s';
+}
+
+function drag(e) {
+    if (isDragging) {
+        e.preventDefault();
+
+        if (e.type === "touchmove") {
+            currentX = e.touches[0].clientX - initialX;
+            currentY = e.touches[0].clientY - initialY;
+        } else {
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+        }
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, chatContainer);
+    }
+}
+
+function setTranslate(xPos, yPos, el) {
+    // Override the CSS bottom/right so translate works properly relative to the initial position
+    el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+}
+
