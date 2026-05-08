@@ -796,12 +796,11 @@ tr:hover td {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    width: 56px;
     height: 56px;
-    border-radius: 50%;
+    padding: 0 20px;
+    border-radius: 28px;
     background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
     border: none;
-    font-size: 24px;
     color: #fff;
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(136, 192, 208, 0.3);
@@ -809,11 +808,22 @@ tr:hover td {
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
+}
+
+.chatbot-toggle .bot-icon {
+    font-size: 24px;
+}
+
+.chatbot-toggle .bot-text {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font);
+    white-space: nowrap;
 }
 
 .chatbot-toggle:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(136, 192, 208, 0.5);
 }
 
