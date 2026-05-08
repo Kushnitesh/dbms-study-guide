@@ -187,5 +187,41 @@ SECTIONS['subjective'] = `
     </div>
 </div>
 
+<!-- Question 10 -->
+<div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">Q10: Define Normalization. Explain 1NF, 2NF, and 3NF with examples. <span class="arrow">▼</span></div>
+    <div class="acc-body">
+        <p><strong>Normalization</strong> is the process of organizing data to minimize redundancy and avoid insertion, update, and deletion anomalies.</p>
+        <ul>
+            <li><strong>1NF (First Normal Form):</strong> A table is in 1NF if every attribute is atomic (single-valued). <em>Example:</em> A student cannot have "Phone1, Phone2" in a single column. It must be split into multiple rows.</li>
+            <li><strong>2NF (Second Normal Form):</strong> A table is in 2NF if it is in 1NF and contains NO partial dependencies. (Every non-key attribute must depend on the FULL primary key, not just a part of a composite key). <em>Example:</em> In a table with PK (Student_ID, Course_ID), "Student_Name" only depends on Student_ID. This is a partial dependency and violates 2NF.</li>
+            <li><strong>3NF (Third Normal Form):</strong> A table is in 3NF if it is in 2NF and contains NO transitive dependencies. (Non-key attributes cannot depend on other non-key attributes). <em>Example:</em> Student_ID → Zip_Code → City. City transitively depends on Student_ID. This violates 3NF.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Question 11 -->
+<div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">Q11: What is a Functional Dependency? Differentiate between Partial and Transitive Dependency. <span class="arrow">▼</span></div>
+    <div class="acc-body">
+        <p>A <strong>Functional Dependency (FD)</strong> is a constraint that specifies the relationship between two sets of attributes, X and Y. Denoted as X → Y (X determines Y).</p>
+        <p><strong>Partial Dependency:</strong> Occurs when a non-prime attribute is functionally dependent on only a part of a candidate key. This can ONLY happen if the table has a composite primary key. <em>(Violates 2NF)</em>.</p>
+        <p><strong>Transitive Dependency:</strong> Occurs when a non-prime attribute is functionally dependent on another non-prime attribute. Essentially a chain: A → B and B → C, therefore A → C. <em>(Violates 3NF)</em>.</p>
+    </div>
+</div>
+
+<!-- Question 12 -->
+<div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">Q12: Differentiate between DDL, DML, DQL, and DCL in SQL. <span class="arrow">▼</span></div>
+    <div class="acc-body">
+        <ul>
+            <li><strong>DDL (Data Definition Language):</strong> Used to define or alter the structure of the database objects (tables, schemas). <em>Commands: CREATE, ALTER, DROP, TRUNCATE.</em></li>
+            <li><strong>DML (Data Manipulation Language):</strong> Used to manipulate the actual data present inside the tables. <em>Commands: INSERT, UPDATE, DELETE.</em></li>
+            <li><strong>DQL (Data Query Language):</strong> Used to fetch/retrieve data from the database. <em>Commands: SELECT.</em></li>
+            <li><strong>DCL (Data Control Language):</strong> Used to manage user permissions and access control. <em>Commands: GRANT, REVOKE.</em></li>
+        </ul>
+    </div>
+</div>
+
 <button class="mark-done-btn" onclick="markDone('subjective')">✅ Mark Section Complete</button>
 `;

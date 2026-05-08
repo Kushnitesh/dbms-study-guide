@@ -56,3 +56,25 @@ QUIZ_DATA.push(
     { q: "Entity Integrity states that:", opts: ["FK cannot be NULL", "PK cannot be NULL", "All attributes must be NOT NULL", "No duplicates anywhere"], ans: 1, explain: "Entity Integrity: Primary Key can NEVER be NULL. It's the fundamental identification rule." },
     { q: "ON DELETE CASCADE means:", opts: ["Block delete", "Set FK to NULL", "Delete all related child rows", "Set FK to default"], ans: 2, explain: "CASCADE = Automatically delete all child rows when the parent row is deleted." }
 );
+
+// Unit 2: Normalization
+QUIZ_DATA.push(
+    { q: "Which normal form deals with partial dependencies?", opts: ["1NF", "2NF", "3NF", "BCNF"], ans: 1, explain: "2NF eliminates partial dependencies where a non-key attribute depends on only part of a composite primary key." },
+    { q: "What does X → Y mean?", opts: ["Y determines X", "X functionally determines Y", "X equals Y", "X and Y are unrelated"], ans: 1, explain: "X is the determinant and Y is the dependent. Knowing X allows you to uniquely identify Y." },
+    { q: "Which normal form requires every determinant to be a candidate key?", opts: ["1NF", "2NF", "3NF", "BCNF"], ans: 3, explain: "BCNF is stricter than 3NF. In BCNF, for every functional dependency X → Y, X MUST be a super/candidate key." },
+    { q: "Lossless join decomposition ensures:", opts: ["No data is lost when joining decomposed tables back together", "Tables are smaller", "Queries run faster", "No spurious tuples are generated"], ans: 3, explain: "Lossless join ensures that Natural Join of the decomposed tables gives EXACTLY the original table without any extra 'spurious' rows." }
+);
+
+// Unit 2: SQL Basics & Advanced
+QUIZ_DATA.push(
+    { q: "Which language category does SELECT belong to?", opts: ["DDL", "DML / DQL", "DCL", "TCL"], ans: 1, explain: "SELECT is primarily considered DQL (Data Query Language), which is often grouped under DML." },
+    { q: "Which command removes all rows but keeps the table structure intact?", opts: ["DROP", "DELETE", "TRUNCATE", "REMOVE"], ans: 2, explain: "TRUNCATE empties the table instantly and cannot be rolled back (DDL). DELETE removes rows one by one (DML). DROP deletes the structure." },
+    { q: "Which JOIN returns all rows from the right table, and matched rows from the left?", opts: ["INNER JOIN", "LEFT JOIN", "RIGHT JOIN", "FULL JOIN"], ans: 2, explain: "RIGHT JOIN keeps everything on the Right side and puts NULLs on the Left where there is no match." },
+    { q: "Can we use aggregate functions (like MAX) in a WHERE clause?", opts: ["Yes, always", "No, never", "Only with HAVING", "Only in subqueries"], ans: 1, explain: "You cannot use aggregate functions directly in a WHERE clause. You must use them in a HAVING clause or a Subquery." }
+);
+
+// Unit 2: Relational Algebra
+QUIZ_DATA.push(
+    { q: "Which relational algebra operation corresponds to the WHERE clause in SQL?", opts: ["Projection (π)", "Selection (σ)", "Rename (ρ)", "Cartesian Product (×)"], ans: 1, explain: "Selection (σ) filters ROWS based on a condition, exactly like the WHERE clause." },
+    { q: "Which operation corresponds to the SELECT clause in SQL?", opts: ["Projection (π)", "Selection (σ)", "Rename (ρ)", "Set Difference (-)"], ans: 0, explain: "Projection (π) selects specific COLUMNS, exactly like the SELECT column_name clause in SQL." }
+);
