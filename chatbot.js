@@ -39,6 +39,19 @@ toggleBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     chatContainer.classList.add('chatbot-hidden');
     toggleBtn.style.display = 'flex';
+
+    // Erase previous data on close
+    messagesDiv.innerHTML = '';
+    messageHistory = [];
+    chatState = 'IDLE';
+
+    // Re-initialize default message
+    if (!localStorage.getItem('groq_api_key')) {
+        addMessage('sys-msg', '🔑 To use Professor Groq, please paste your Groq API Key below. It will be securely saved in your browser.');
+        chatState = 'AWAITING_KEY';
+    } else {
+        addMessage('bot-msg', 'Hello! I am your AI Tutor. How can I help you today?');
+    }
 });
 
 function addMessage(type, text) {
